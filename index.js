@@ -10,12 +10,6 @@ serializers.youtube = serializerYoutube
 serializers.vimeo = serializerVimeo
 
 module.exports = async function (request, response) {
-	// Guard for favicon requests.
-	if (request.url === '/favicon.ico') {
-		response.end()
-		return
-	}
-
 	// Get the arguments from the URL.
 	let args = request.url.split('/')
 	let provider = args[1]
@@ -24,7 +18,8 @@ module.exports = async function (request, response) {
 	// Get our serializer
 	let serializer = serializers[provider]
 	if (!serializer) {
-		return 'Please use an URL like "youtube/id" or "vimeo/id"'
+		send(response, 404, 'Please use an URL like "youtube/id" or "vimeo/id"')
+    return
 	}
 
 	// Fetch the data.
@@ -36,5 +31,5 @@ module.exports = async function (request, response) {
 	// Extract only the data we need.
 	let serializedJson = serializer.serialize(json)
 
-	send(response, 200, serializedJson)
+	return serializedJson
 }
