@@ -3,11 +3,13 @@ require('dotenv').config()
 const {send} = require('micro')
 const serializerYoutube = require('./src/serializer-youtube')
 const serializerVimeo = require('./src/serializer-vimeo')
+const serializerDiscogs = require('./src/serializer-discogs')
 
 // Add our serializers
 let serializers = {}
 serializers.youtube = serializerYoutube
 serializers.vimeo = serializerVimeo
+serializers.discogs = serializerDiscogs
 
 module.exports = async function (request, response) {
 	// Get the arguments from the URL.
