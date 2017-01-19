@@ -24,7 +24,6 @@ const serialize = function (json) {
 		title: json.title,
 		genres: json.genres,
 		styles: json.styles
-
 	}
 }
 
