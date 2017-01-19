@@ -1,11 +1,12 @@
 # Media now
 
-Get handy information from YouTube and Vimeo videos through this micro service. Easier than communicating and finding the right data from the different providers yourself.
+Get handy information from YouTube and Vimeo videos as well as Discogs releases through this micro service. Easier than communicating and finding the right data from the different providers yourself.
 
 ## Usage
 
 - https://media.now.sh/youtube/YyI52_FEYgY
 - https://media.now.sh/vimeo/121814744
+- https://media.now.sh/discogs/1728315
 
 The data returned will be formatted like so:
 
