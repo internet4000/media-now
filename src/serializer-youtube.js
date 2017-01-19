@@ -9,7 +9,7 @@ const buildURL = function (id) {
 
 const fetchData = async function (id) {
 	if (!key) {
-		throw new Error('No YOUTUBE_KEY in your environement file')
+		throw new Error('A YOUTUBE_KEY in your .env file is required')
 	}
 	return await fetch(buildURL(id))
 }

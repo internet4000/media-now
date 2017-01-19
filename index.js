@@ -12,7 +12,7 @@ serializers.vimeo = serializerVimeo
 serializers.discogs = serializerDiscogs
 
 module.exports = async function (request, response) {
-	// Get the arguments from the URL.
+	// Get the arguments from the URL. We expect a format like "/provider/id"
 	let args = request.url.split('/')
 	let provider = args[1]
 	let id = args[2]
@@ -20,8 +20,11 @@ module.exports = async function (request, response) {
 	// Get our serializer
 	let serializer = serializers[provider]
 	if (!serializer) {
-		send(response, 404, 'Please use an URL like "youtube/id" or "vimeo/id"')
-    return
+		send(response, 404, {
+			error: "Please use an URL like '/{youtube/vimeo/discogs}/id'",
+			help: 'https://github.com/oskarrough/media-now'
+		})
+		return
 	}
 
 	// Fetch the data.

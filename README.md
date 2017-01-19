@@ -28,7 +28,7 @@ You'll need node and yarn (or npm) installed.
 * `yarn install`
 * `yarn start`
 
-It won't be able to make any requests before the required API keys are defined in an `.env` file. You'll have to create it yourself.
+It won't be able to make any requests before the required API keys are defined in an `.env` file. You'll have to create the file yourself and register for API keys as well.
 
 ```
 YOUTUBE_KEY=123
