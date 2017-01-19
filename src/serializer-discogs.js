@@ -1,7 +1,5 @@
 const fetch = require('isomorphic-fetch')
 
-const key = process.env.DISCOGS_KEY
-
 const buildURL = function (id) {
 	return `https://api.discogs.com/releases/${id}`
 }
@@ -11,7 +9,6 @@ const fetchData = async function (id) {
 }
 
 const serialize = function (json) {
-console.log( json );
 
 	if (json.length === 0) {
 		throw new Error('No JSON items to work with')
