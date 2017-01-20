@@ -781,6 +781,10 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
+micro-cors@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/micro-cors/-/micro-cors-0.0.1.tgz#f3e1f85936e33bf15d321ba57938a6407e1976fa"
+
 micro@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/micro/-/micro-6.2.0.tgz#088e86898de55760f266531f48bdd878572ecf9d"

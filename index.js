@@ -1,12 +1,13 @@
 require('dotenv').config()
 const {send} = require('micro')
+const microCors = require('micro-cors')
 const youtube = require('./src/serializer-youtube')
 const vimeo = require('./src/serializer-vimeo')
 const discogs = require('./src/serializer-discogs')
 
 const serializers = {youtube, vimeo, discogs}
 
-module.exports = async function (request, response) {
+const handler = async (request, response) => {
 	// An URL as `domain.com/youtube/id` is expected.
 	let args = request.url.split('/')
 	let provider = args[1]
@@ -26,3 +27,7 @@ module.exports = async function (request, response) {
 	let json = await data.json()
 	return serializer.serialize(json)
 }
+
+const cors = microCors({allowMethods: ['GET']})
+module.exports = cors(handler)
+

@@ -9,6 +9,7 @@
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
     "micro": "^6.2.0",
+    "micro-cors": "^0.0.1",
     "nodemon": "^1.11.0",
     "pomeranian-durations": "^0.1.4"
   },
