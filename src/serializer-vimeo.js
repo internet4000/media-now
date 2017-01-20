@@ -8,7 +8,7 @@ const buildURL = function (id) {
 
 const fetchData = async function (id) {
 	if (!key) {
-		throw new Error('No VIMEO_KEY in your environement file')
+		throw new Error('A VIDEO_KEY in your .env file is required')
 	}
 	let data = await fetch(buildURL(id), {
 		// Vimeo requires an auth header.

@@ -9,7 +9,6 @@ const fetchData = async function (id) {
 }
 
 const serialize = function (json) {
-
 	if (json.length === 0) {
 		throw new Error('No JSON items to work with')
 	}
@@ -18,12 +17,12 @@ const serialize = function (json) {
 		provider: 'discogs',
 		id: json.id,
 		url: json.uri,
-		artists: json.artists,
-		year: json.year,
-		labels: json.labels,
 		title: json.title,
+		year: json.year,
 		genres: json.genres,
-		styles: json.styles
+		styles: json.styles,
+		artists: json.artists,
+		labels: json.labels
 	}
 }
 
