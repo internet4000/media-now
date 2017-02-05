@@ -6,6 +6,11 @@
   "author": "Oskar Rough",
   "private": true,
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec 'micro .'",
+    "test": "xo && ava",
+    "deploy": "sed 's/^/-e /' .env | xargs now"
+  },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
     "micro": "^6.2.0",
@@ -13,11 +18,18 @@
     "nodemon": "^1.11.0",
     "pomeranian-durations": "^0.1.4"
   },
-  "scripts": {
-    "start": "nodemon --exec 'micro .'",
-    "deploy": "sed 's/^/-e /' .env | xargs now"
-  },
   "devDependencies": {
-    "dotenv": "^4.0.0"
+    "ava": "^0.18.1",
+    "dotenv": "^4.0.0",
+    "test-listen": "^1.0.1",
+    "xo": "^0.17.1"
+  },
+  "xo": {
+    "semicolon": false
+  },
+  "ava": {
+    "require": [
+      "async-to-gen/register"
+    ]
   }
 }

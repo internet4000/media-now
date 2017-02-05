@@ -7,7 +7,8 @@ const discogs = require('./src/serializer-discogs')
 
 const serializers = {youtube, vimeo, discogs}
 
-const handler = async (request, response) => {
+const cors = microCors({allowMethods: ['GET']})
+module.exports = cors(async (request, response) => {
 	// An URL as `domain.com/youtube/id` is expected.
 	let args = request.url.split('/')
 	let provider = args[1]
@@ -16,7 +17,7 @@ const handler = async (request, response) => {
 
 	if (!serializer) {
 		send(response, 404, {
-			error: "Please use an URL like '/{youtube/vimeo/discogs}/id'",
+			error: 'Please use an URL like "/{youtube/vimeo/discogs}/id"',
 			help: 'https://github.com/oskarrough/media-now'
 		})
 		return
@@ -26,8 +27,5 @@ const handler = async (request, response) => {
 	let data = await serializer.fetchData(id)
 	let json = await data.json()
 	return serializer.serialize(json)
-}
-
-const cors = microCors({allowMethods: ['GET']})
-module.exports = cors(handler)
+})
 
