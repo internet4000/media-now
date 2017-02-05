@@ -7,8 +7,10 @@ Get handy information from YouTube and Vimeo videos as well as Discogs releases 
 - https://media.now.sh/youtube/YyI52_FEYgY
 - https://media.now.sh/vimeo/121814744
 - https://media.now.sh/discogs/1728315
+- https://media.now.sh/spotify/3S2R0EVwBSAVMd5UMgKTL0
+- https://media.now.sh/spotify/search/thriller michael jackson
 
-The data returned will be formatted like so:
+The data returned will (mostly) be formatted like so:
 
 ```js
 {
