@@ -9,6 +9,7 @@ Get handy information from YouTube and Vimeo videos as well as Discogs releases 
 - https://media.now.sh/discogs/1728315
 - https://media.now.sh/spotify/3S2R0EVwBSAVMd5UMgKTL0
 - https://media.now.sh/spotify/search/thriller michael jackson
+- https://media.now.sh/analyse/3S2R0EVwBSAVMd5UMgKTL0
 
 The data returned will (mostly) be formatted like so:
 

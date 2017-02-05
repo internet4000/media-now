@@ -5,8 +5,9 @@ const youtube = require('./src/serializer-youtube')
 const vimeo = require('./src/serializer-vimeo')
 const discogs = require('./src/serializer-discogs')
 const spotify = require('./src/serializer-spotify')
+const analyse = require('./src/serializer-analyse')
 
-const serializers = {youtube, vimeo, discogs, spotify}
+const serializers = {youtube, vimeo, discogs, spotify, analyse}
 const cors = microCors({allowMethods: ['GET']})
 
 module.exports = cors(async (request, response) => {
