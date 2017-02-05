@@ -2,6 +2,10 @@
 
 Get handy information from YouTube and Vimeo videos as well as Discogs releases through this micro service. Easier than communicating and finding the right data from the different providers yourself.
 
+![](https://travis-ci.org/Internet4000/media-now.svg?branch=master)
+
+![The Burning of the Library at Alexandria in 391 AD. Ambrose Dudley](http://i.imgur.com/2fvkbVel.jpg)
+
 ## Usage
 
 - https://media.now.sh/youtube/YyI52_FEYgY
