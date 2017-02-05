@@ -60,3 +60,29 @@ test('discogs provider', async t => {
 	t.truthy(json.year)
 })
 
+test('spotify provider', async t => {
+	let provider = 'spotify'
+	let id = '20efeySIfZoiSaISGLBbNs'
+	const url = await listen(micro(mediaNow))
+	const body = await fetch(`${url}/${provider}/${id}`)
+	const json = await body.json()
+	t.is(body.status, 200)
+	verifyProvider(t, provider, id, json)
+})
+
+test('spotify search', async t => {
+	let provider = 'spotify'
+	let query = 'thriller michael jackson'
+	const url = await listen(micro(mediaNow))
+	const body = await fetch(`${url}/${provider}/search/${query}`)
+	const json = await body.json()
+	const item = json[0]
+	t.is(body.status, 200)
+	t.is(item.provider, provider)
+	t.truthy(item.id)
+	t.truthy(item.title)
+	// test if title contains words from the query?
+	// item.title.search(new RegExp('thriller', 'i'))
+	let firstWordIsIncluded = item.title.toLowerCase().includes(query.split(' ')[0])
+	t.true(firstWordIsIncluded)
+})
