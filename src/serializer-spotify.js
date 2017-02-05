@@ -9,7 +9,6 @@ const buildURL = function (query) {
 
 const fetchData = async function (id, args) {
 	if (id === 'search') {
-		console.log(args)
 		let query = args[3]
 		return await fetch(buildURL(query))
 	}

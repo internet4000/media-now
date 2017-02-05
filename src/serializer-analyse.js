@@ -7,6 +7,8 @@ const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
 // Send a request to spotify with our client id and secret
 // to get an access token back. A token is required for certain
 // Spotify API endpoints. Like audio-analysis.
+// Because I couldn't configure node-fetch to send the request correctly,
+// we're using request here instead of fetch.
 const requestAccessToken = async function (id, secret) {
 	if (!id || !secret) {
 		throw new Error('Missing Spotify secrets. Check your .env file')
@@ -25,8 +27,6 @@ const requestAccessToken = async function (id, secret) {
 		json: true
 	}
 
-	// Using a promise-version of the request module,
-	// because I couldn't configure node-fetch to send the request correctly.
 	return await rp.post(options)
 }
 

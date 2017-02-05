@@ -5,8 +5,7 @@ const fetch = require('isomorphic-fetch')
 const mediaNow = require('./index')
 
 test('the server runs and returns a 404 error message', async t => {
-	const service = micro(mediaNow)
-	const url = await listen(service)
+	const url = await listen(micro(mediaNow))
 	const body = await fetch(url)
 	const json = await body.json()
 	t.is(body.status, 404)
@@ -35,8 +34,7 @@ test('youtube provider', async t => {
 test('vimeo provider', async t => {
 	let provider = 'vimeo'
 	let id = '121814744'
-	const service = micro(mediaNow)
-	const url = await listen(service)
+	const url = await listen(micro(mediaNow))
 	const body = await fetch(`${url}/${provider}/${id}`)
 	const json = await body.json()
 	t.is(body.status, 200)
@@ -46,8 +44,7 @@ test('vimeo provider', async t => {
 test('discogs provider', async t => {
 	let provider = 'discogs'
 	let id = 1728315
-	const service = micro(mediaNow)
-	const url = await listen(service)
+	const url = await listen(micro(mediaNow))
 	const body = await fetch(`${url}/${provider}/${id}`)
 	const json = await body.json()
 	t.is(body.status, 200)
@@ -70,7 +67,7 @@ test('spotify provider', async t => {
 	verifyProvider(t, provider, id, json)
 })
 
-test('spotify search', async t => {
+test('spotify provider search', async t => {
 	let provider = 'spotify'
 	let query = 'thriller michael jackson'
 	const url = await listen(micro(mediaNow))
@@ -86,3 +83,4 @@ test('spotify search', async t => {
 	let firstWordIsIncluded = item.title.toLowerCase().includes(query.split(' ')[0])
 	t.true(firstWordIsIncluded)
 })
+
