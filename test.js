@@ -68,21 +68,19 @@ test('spotify provider', async t => {
 	t.truthy(json.mediaNow)
 })
 
-test('spotify provider search', async t => {
-	let provider = 'spotify'
+test('spotify-search provider', async t => {
+	let provider = 'spotify-search'
 	let query = 'Michael Jackson - Thriller'
 	const url = await listen(micro(mediaNow))
-	const body = await fetch(`${url}/${provider}/search/${query}`)
+	const body = await fetch(`${url}/${provider}/${query}`)
 	const json = await body.json()
+	console.log(json)
 	const item = json[0]
-
 	t.is(body.status, 200)
-
-	t.is(item.provider, provider)
+	t.is(item.provider, 'spotify')
 	t.truthy(item.id)
 	t.truthy(item.title)
 	t.truthy(item.mediaNow)
-
 	let firstWord = query.split(' ')[0].toLowerCase()
 	let firstWordIsIncluded = item.title.toLowerCase().includes(firstWord)
 	t.true(firstWordIsIncluded)
