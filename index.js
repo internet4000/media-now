@@ -4,12 +4,18 @@ const microCors = require('micro-cors')
 const youtube = require('./src/serializer-youtube')
 const vimeo = require('./src/serializer-vimeo')
 const discogs = require('./src/serializer-discogs')
+const spotify = require('./src/serializer-spotify')
+const spotifySearch = require('./src/serializer-spotify-search')
+const analyse = require('./src/serializer-analyse')
 
-const serializers = {youtube, vimeo, discogs}
-
+const serializers = {
+	youtube, vimeo, discogs, spotify,
+	'spotify-search': spotifySearch,
+	analyse
+}
 const cors = microCors({allowMethods: ['GET']})
+
 module.exports = cors(async (request, response) => {
-	// An URL as `domain.com/youtube/id` is expected.
 	let args = request.url.split('/')
 	let provider = args[1]
 	let id = args[2]

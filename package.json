@@ -8,19 +8,22 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon --exec 'micro .'",
+    "now-start": "micro .",
     "test": "xo && ava",
-    "deploy": "sed 's/^/-e /' .env | xargs now"
+    "deploy": "sed 's/^/-e /' .env | xargs now -e NODE_ENV=production"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "isomorphic-fetch": "^2.2.1",
     "micro": "^6.2.0",
     "micro-cors": "^0.0.1",
-    "nodemon": "^1.11.0",
-    "pomeranian-durations": "^0.1.4"
+    "pomeranian-durations": "^0.1.4",
+    "request": "^2.79.0",
+    "request-promise-native": "^1.0.3"
   },
   "devDependencies": {
     "ava": "^0.18.1",
-    "dotenv": "^4.0.0",
+    "nodemon": "^1.11.0",
     "test-listen": "^1.0.1",
     "xo": "^0.17.1"
   },
