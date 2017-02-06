@@ -74,7 +74,6 @@ test('spotify-search provider', async t => {
 	const url = await listen(micro(mediaNow))
 	const body = await fetch(`${url}/${provider}/${query}`)
 	const json = await body.json()
-	console.log(json)
 	const item = json[0]
 	t.is(body.status, 200)
 	t.is(item.provider, 'spotify')
