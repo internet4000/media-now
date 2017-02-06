@@ -1,12 +1,17 @@
-# Media now
+# Media Now
 
-Get handy information from YouTube and Vimeo videos as well as Discogs releases through this micro service. Easier than communicating and finding the right data from the different providers yourself.
+Get media information from YouTube and Vimeo videos, Spotify tracks and Discogs releases.
+
+Media Now is an API that proxies and unifies different providers.
+Creating new providers is straight forward ([example](https://github.com/Internet4000/media-now/blob/master/src/serializer-discogs.js)).
 
 ![](https://travis-ci.org/Internet4000/media-now.svg?branch=master)
 
-![The Burning of the Library at Alexandria in 391 AD. Ambrose Dudley](http://i.imgur.com/2fvkbVel.jpg)
+![The Burning of the Library at Alexandria in 391 AD. Ambrose Dudley](http://i.imgur.com/2fvkbVem.jpg)
 
-## Usage
+## API
+
+Here is a hopefully self-explanatory list of endpoints. Try them!
 
 - https://media.now.sh/youtube/YyI52_FEYgY
 - https://media.now.sh/vimeo/121814744
@@ -30,13 +35,13 @@ The data returned will (mostly) be formatted like so:
 
 ## Developing
 
-You'll need node and yarn (or npm) installed.
+You'll need node.js and yarn (or npm) installed.
 
 * git clone this repo and cd into it
 * `yarn install`
 * `yarn start`
 
-It won't be able to make any requests before the required API keys are defined in an `.env` file. You'll have to create the file yourself and register for API keys as well.
+Some requests require authentication. Copy the following into an `.env` file and replace the keys with your own.
 
 ```
 YOUTUBE_KEY="123abc"
@@ -45,8 +50,12 @@ SPOTIFY_CLIENT_ID="123abc"
 SPOTIFY_CLIENT_SECRET="123abc"
 ```
 
+- https://console.developers.google.com/apis/api/youtube/overview
+- https://developer.vimeo.com/apps
+- https://developer.spotify.com/my-applications/
+
 ## Deploying
 
-1. `yarn deploy` (or npm run deploy, if you please)
-2. `now alias insert-now-id-from-above-deploy-here media.now.sh` (the id will be ready to paste automatically)
+1. `yarn deploy` (or `npm run deploy`, if you please)
+2. `now alias <paste now url here> media.now.sh` (the id will be ready to paste automatically)
 

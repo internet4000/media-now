@@ -15,16 +15,16 @@ const serializers = {
 }
 const cors = microCors({allowMethods: ['GET']})
 
-module.exports = cors(async (request, response) => {
-	let args = request.url.split('/')
+module.exports = cors(async (req, res) => {
+	let args = req.url.split('/')
 	let provider = args[1]
 	let id = args[2]
 	let serializer = serializers[provider]
 
 	if (!serializer) {
-		send(response, 404, {
-			error: 'Please use an URL like "/{youtube/vimeo/discogs}/id"',
-			help: 'https://github.com/oskarrough/media-now'
+		send(res, 404, {
+			error: `Hello. No serializer found for '${provider}'.`,
+			help: 'https://github.com/internet4000/media-now'
 		})
 		return
 	}

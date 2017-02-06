@@ -1,7 +1,7 @@
 {
   "name": "media-now",
   "version": "0.0.0",
-  "description": "Fetch video information from YouTube and Vimeo",
+  "description": "Fetch media information from YouTube, Vimeo, Spotify and Discogs",
   "main": "index.js",
   "author": "Oskar Rough",
   "private": true,
@@ -10,7 +10,7 @@
     "start": "nodemon --exec 'micro .'",
     "now-start": "micro .",
     "test": "xo && ava",
-    "deploy": "sed 's/^/-e /' .env | xargs now -e NODE_ENV=production"
+    "deploy": "now --dotenv -e NODE_ENV=production"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
