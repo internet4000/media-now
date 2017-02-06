@@ -48,7 +48,7 @@ const fetchData = async function (id) {
 const serialize = function (json) {
 	json.provider = 'analyse'
 	json.mediaNow = {
-		spotify: `http://localhost:3000/spotify/${json.id}`
+		spotify: `https://media.now.sh/spotify/${json.id}`
 	}
 	return json
 }

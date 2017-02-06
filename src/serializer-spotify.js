@@ -17,7 +17,7 @@ const serializeOne = item => ({
 		previewUrl: item.preview_url
 	},
 	mediaNow: {
-		analyse: `http://localhost:3000/analyse/${item.id}`
+		analyse: `https://media.now.sh/analyse/${item.id}`
 	}
 })
 

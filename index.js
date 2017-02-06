@@ -30,7 +30,7 @@ module.exports = cors(async (request, response) => {
 	}
 
 	// Fetch the data, convert to json, extract what we need.
-	let data = await serializer.fetchData(id, args)
+	let data = await serializer.fetchData(id)
 	let json = await data.json()
 	return serializer.serialize(json)
 })

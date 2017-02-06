@@ -37,8 +37,8 @@ const serializeMany = items => items.map(item => {
 		id: item.id,
 		title: `${item.artists[0].name} - ${item.name}`,
 		mediaNow: {
-			spotify: `http://localhost:3000/spotify/${item.id}`,
-			analyse: `http://localhost:3000/analyse/${item.id}`
+			spotify: `https://media.now.sh/spotify/${item.id}`,
+			analyse: `https://media.now.sh/analyse/${item.id}`
 		}
 	}
 })
