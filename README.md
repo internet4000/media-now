@@ -41,14 +41,7 @@ You'll need node.js and yarn (or npm) installed.
 * `yarn install`
 * `yarn start`
 
-Some requests require authentication. Copy the following into an `.env` file and replace the keys with your own.
-
-```
-YOUTUBE_KEY="123abc"
-VIMEO_KEY="123abc"
-SPOTIFY_CLIENT_ID="123abc"
-SPOTIFY_CLIENT_SECRET="123abc"
-```
+Some requests require authentication. Copy the `.env-example` file to `.env` and replace the keys with your own. You can register (free) here:
 
 - https://console.developers.google.com/apis/api/youtube/overview
 - https://developer.vimeo.com/apps
