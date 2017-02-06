@@ -45,18 +45,22 @@ const serializeOne = item => ({
 	extras: {
 		isrc: item.external_ids.isrc,
 		popularity: item.popularity,
-		previewUrl: item.preview_url,
-		_analysis: `http://localhost:3000/analyse/${item.id}`
+		previewUrl: item.preview_url
+	},
+	mediaNow: {
+		analyse: `http://localhost:3000/analyse/${item.id}`
 	}
 })
 
 const serializeMany = items => items.map(item => {
-	// return serializeOne(item)
 	return {
 		provider: 'spotify',
 		id: item.id,
 		title: `${item.artists[0].name} - ${item.name}`,
-		_spotify: `http://localhost:3000/spotify/${item.id}`
+		mediaNow: {
+			spotify: `http://localhost:3000/spotify/${item.id}`,
+			analyse: `http://localhost:3000/analyse/${item.id}`
+		}
 	}
 })
 

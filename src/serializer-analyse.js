@@ -1,6 +1,9 @@
 const fetch = require('isomorphic-fetch')
 const rp = require('request-promise-native')
 
+// This serializer provides audio-analysis for Spotify tracks.
+// Currently using https://developer.spotify.com/web-api/get-audio-features/.
+
 const clientId = process.env.SPOTIFY_CLIENT_ID
 const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
 
@@ -43,6 +46,10 @@ const fetchData = async function (id) {
 }
 
 const serialize = function (json) {
+	json.provider = 'analyse'
+	json.mediaNow = {
+		spotify: `http://localhost:3000/spotify/${json.id}`
+	}
 	return json
 }
 
