@@ -88,3 +88,16 @@ test('spotify provider search', async t => {
 	t.true(firstWordIsIncluded)
 })
 
+test('analyse provider', async t => {
+	let provider = 'analyse'
+	let id = '20efeySIfZoiSaISGLBbNs'
+	const url = await listen(micro(mediaNow))
+	const body = await fetch(`${url}/${provider}/${id}`)
+	const json = await body.json()
+	t.is(body.status, 200)
+	t.truthy(json.mediaNow)
+	t.truthy(json.energy)
+	t.truthy(json.tempo)
+	t.truthy(json.valence)
+	t.truthy(json.danceability)
+})
