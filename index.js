@@ -1,6 +1,5 @@
 require('dotenv').config()
-const opbeat = require('opbeat').start({
-})
+const opbeat = require('opbeat').start()
 const {send} = require('micro')
 const microCors = require('micro-cors')
 
