@@ -17,6 +17,7 @@
     "isomorphic-fetch": "^2.2.1",
     "micro": "^6.2.0",
     "micro-cors": "^0.0.1",
+    "opbeat": "^4.11.0",
     "pomeranian-durations": "^0.1.4",
     "request": "^2.79.0",
     "request-promise-native": "^1.0.3"

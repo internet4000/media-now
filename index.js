@@ -1,6 +1,9 @@
 require('dotenv').config()
+const opbeat = require('opbeat').start({
+})
 const {send} = require('micro')
 const microCors = require('micro-cors')
+
 const youtube = require('./src/serializer-youtube')
 const vimeo = require('./src/serializer-vimeo')
 const discogs = require('./src/serializer-discogs')
@@ -13,6 +16,7 @@ const serializers = {
 	'spotify-search': spotifySearch,
 	analyse
 }
+
 const cors = microCors({allowMethods: ['GET']})
 
 module.exports = cors(async (req, res) => {
@@ -20,6 +24,8 @@ module.exports = cors(async (req, res) => {
 	let provider = args[1]
 	let id = args[2]
 	let serializer = serializers[provider]
+
+	opbeat.setTransactionName(req.url)
 
 	if (!serializer) {
 		send(res, 404, {
@@ -34,4 +40,3 @@ module.exports = cors(async (req, res) => {
 	let json = await data.json()
 	return serializer.serialize(json)
 })
-
