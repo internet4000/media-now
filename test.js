@@ -31,6 +31,20 @@ test('youtube provider', async t => {
 	verifyProvider(t, provider, id, json)
 })
 
+test('endpoints returns 404 for non-exisiting ids', async t => {
+	let provider = 'youtube'
+	let id = 'this is probably not a valid id'
+	const url = await listen(micro(mediaNow))
+	const youtube = await fetch(`${url}/youtube/${id}`)
+	t.is(youtube.status, 404)
+	const discogs = await fetch(`${url}/discogs/${id}`)
+	t.is(discogs.status, 404)
+	const spotify = await fetch(`${url}/spotify/${id}`)
+	t.is(spotify.status, 404)
+	const vimeo = await fetch(`${url}/vimeo/${id}`)
+	t.is(vimeo.status, 404)
+})
+
 test('vimeo provider', async t => {
 	let provider = 'vimeo'
 	let id = '121814744'

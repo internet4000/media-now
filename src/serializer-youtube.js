@@ -16,7 +16,7 @@ const fetchData = async function (id) {
 
 const serialize = function (json) {
 	if (json.items.length === 0) {
-		throw new Error('No JSON items to work with')
+		throw new Error('No results found')
 	}
 
 	const item = json.items[0]
