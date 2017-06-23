@@ -32,7 +32,6 @@ test('youtube provider', async t => {
 })
 
 test('endpoints returns 404 for non-exisiting ids', async t => {
-	let provider = 'youtube'
 	let id = 'this is probably not a valid id'
 	const url = await listen(micro(mediaNow))
 	const youtube = await fetch(`${url}/youtube/${id}`)
