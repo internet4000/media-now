@@ -29,6 +29,7 @@ test('youtube provider', async t => {
 	const json = await body.json()
 	t.is(body.status, 200)
 	verifyProvider(t, provider, id, json)
+	t.truthy(json.status, 'it includes privacy status info')
 })
 
 test('vimeo provider', async t => {
