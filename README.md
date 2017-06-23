@@ -29,7 +29,8 @@ The data returned will (mostly) be formatted like so:
 	"url": "https://www.youtube.com/watch?v=YyI52_FEYgY",
 	"title": "I Due Nemici",
 	"thumbnail": "https://i.ytimg.com/vi/YyI52_FEYgY/default.jpg",
-	"duration": 6300 // seconds
+	"duration": 6300 // seconds,
+	"status" {} // privacy info, is it embeddable etc.
 }
 ```
 
