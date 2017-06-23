@@ -1,6 +1,6 @@
 {
   "name": "media-now",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Fetch media information from YouTube, Vimeo, Spotify and Discogs",
   "main": "index.js",
   "author": "Oskar Rough",
@@ -35,5 +35,8 @@
     "require": [
       "async-to-gen/register"
     ]
+  },
+  "now": {
+    "alias": "media.now.sh"
   }
 }
