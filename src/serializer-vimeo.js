@@ -8,33 +8,32 @@ const buildURL = function (id) {
 
 const fetchData = async function (id) {
 	if (!key) {
-		throw new Error('A VIDEO_KEY in your .env file is required')
+		throw new Error('A VIMEO_KEY in your .env file is required')
 	}
-	let data = await fetch(buildURL(id), {
+	return await fetch(buildURL(id), {
 		// Vimeo requires an auth header.
 		headers: {
 			Authorization: key
 		}
 	})
-	return data
 }
 
 const serialize = function (json) {
-	if (!json) {
-		throw new Error('No JSON items to work with')
+	if (!json || json.error) {
+		let msg = json.error || 'No results found'
+		throw new Error(msg)
 	}
 
-	const item = json
-	// return item // use this to debug
+	// return json // use this to debug
 
 	return {
 		provider: 'vimeo',
-		// id: item.id,
-		id: item.uri.split('/')[2], // no id in the JSON?
-		url: item.link,
-		title: item.name,
-		thumbnail: item.pictures.sizes[0].link,
-		duration: item.duration
+		// id: json.id,
+		id: json.uri.split('/')[2], // no id in the JSON?
+		url: json.link,
+		title: json.name,
+		thumbnail: json.pictures.sizes[0].link,
+		duration: json.duration
 	}
 }
 

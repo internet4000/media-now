@@ -16,7 +16,7 @@ const fetchData = async function (id) {
 
 const serialize = function (json) {
 	if (json.items.length === 0) {
-		throw new Error('No video found')
+		throw new Error('No results found')
 	}
 
 	const item = json.items[0]
