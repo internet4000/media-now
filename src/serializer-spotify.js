@@ -33,10 +33,10 @@ const serializeOne = item => ({
 
 const serialize = function (json) {
 	// return json // use this to debug
-	if (json.id) {
-		return serializeOne(json)
+	if (!json.id) {
+		throw new Error('No results found')
 	}
-	return {error: 'no results'}
+	return serializeOne(json)
 }
 
 module.exports.fetchData = fetchData

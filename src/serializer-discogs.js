@@ -9,10 +9,10 @@ const fetchData = async function (id) {
 }
 
 const serialize = function (json) {
-	if (json.length === 0) {
-		throw new Error('No JSON items to work with')
+	// return json
+	if (!json.id) {
+		throw new Error('No results found')
 	}
-
 	return {
 		provider: 'discogs',
 		id: json.id,
