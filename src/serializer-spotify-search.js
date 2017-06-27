@@ -1,4 +1,5 @@
 const fetch = require('isomorphic-fetch')
+const getSpotifyToken = require('./get-spotify-token')
 
 // Take a query like "Artist - Track title"
 // and return {artist, title}
@@ -28,7 +29,12 @@ const buildURL = function (query) {
 }
 
 const fetchData = async function (id) {
-	return await fetch(buildURL(id))
+	const token = await getSpotifyToken()
+	return await fetch(buildURL(id), {
+		headers: {
+			Authorization: 'Bearer ' + token.access_token
+		}
+	})
 }
 
 const serializeMany = items => items.map(item => {
