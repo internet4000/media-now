@@ -29,6 +29,7 @@ test('youtube provider', async t => {
 	const json = await body.json()
 	t.is(body.status, 200)
 	verifyProvider(t, provider, id, json)
+	t.truthy(json.status, 'it includes privacy status info')
 })
 
 test('endpoints returns 404 for non-exisiting ids', async t => {
