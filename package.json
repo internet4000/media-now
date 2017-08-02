@@ -26,15 +26,10 @@
     "ava": "^0.18.1",
     "nodemon": "^1.11.0",
     "test-listen": "^1.0.1",
-    "xo": "^0.17.1"
+    "xo": "^0.18.2"
   },
   "xo": {
     "semicolon": false
-  },
-  "ava": {
-    "require": [
-      "async-to-gen/register"
-    ]
   },
   "now": {
     "alias": "media.now.sh"

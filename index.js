@@ -21,10 +21,10 @@ const serializers = {
 const cors = microCors({allowMethods: ['GET']})
 
 module.exports = cors(async (req, res) => {
-	let args = req.url.split('/')
-	let provider = args[1]
-	let id = args[2]
-	let serializer = serializers[provider]
+	const args = req.url.split('/')
+	const provider = args[1]
+	const id = args[2]
+	const serializer = serializers[provider]
 
 	opbeat.setTransactionName(req.url)
 
@@ -38,8 +38,8 @@ module.exports = cors(async (req, res) => {
 
 	// Fetch the data, convert to json, extract what we need.
 	try {
-		let data = await serializer.fetchData(id)
-		let json = await data.json()
+		const data = await serializer.fetchData(id)
+		const json = await data.json()
 		return serializer.serialize(json)
 	} catch (err) {
 		send(res, 404, {error: err.message})

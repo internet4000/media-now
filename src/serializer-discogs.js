@@ -5,11 +5,10 @@ const buildURL = function (id) {
 }
 
 const fetchData = async function (id) {
-	return await fetch(buildURL(id))
+	return fetch(buildURL(id))
 }
 
 const serialize = function (json) {
-	// return json
 	if (!json.id) {
 		throw new Error('No results found')
 	}

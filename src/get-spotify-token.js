@@ -12,7 +12,7 @@ module.exports = async function () {
 		throw new Error('Missing Spotify secrets. Check your .env file')
 	}
 
-	const auth = new Buffer(`${id}:${secret}`).toString('base64')
+	const auth = Buffer.from(`${id}:${secret}`).toString('base64')
 	const options = {
 		url: 'https://accounts.spotify.com/api/token',
 		headers: {
@@ -24,5 +24,5 @@ module.exports = async function () {
 		json: true
 	}
 
-	return await rp.post(options)
+	return rp.post(options)
 }

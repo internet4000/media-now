@@ -11,7 +11,7 @@ const fetchData = async function (id) {
 	if (!key) {
 		throw new Error('A YOUTUBE_KEY in your .env file is required')
 	}
-	return await fetch(buildURL(id))
+	return fetch(buildURL(id))
 }
 
 const serialize = function (json) {
@@ -20,23 +20,22 @@ const serialize = function (json) {
 	}
 
 	const item = json.items[0]
-	// return item // use this to debug
 
 	return {
 		provider: 'youtube',
 		id: item.id,
 		url: `https://www.youtube.com/watch?v=${item.id}`,
 
-		// requires ?part=snippet
+		// Requires ?part=snippet
 		title: item.snippet.title,
 		thumbnail: item.snippet.thumbnails.default.url,
 
-		// requires ?part=contentDetails
+		// Requires ?part=contentDetails
 		// See https://github.com/date-fns/date-fns/pull/348
 		// Once date-fns supports durations let's switch to that.
 		duration: asSeconds(item.contentDetails.duration),
 
-		// requires ?part=status
+		// Requires ?part=status
 		status: item.status
 	}
 }

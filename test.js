@@ -22,10 +22,11 @@ function verifyProvider(t, provider, id, json) {
 }
 
 test('youtube provider', async t => {
-	let provider = 'youtube'
-	let id = '1-VFPoW5S-M'
+	const provider = 'youtube'
+	const id = '1-VFPoW5S-M'
 	const url = await listen(micro(mediaNow))
-	const body = await fetch(`${url}/${provider}/${id}`)
+	const endpoint = `${url}/${provider}/${id}`
+	const body = await fetch(endpoint)
 	const json = await body.json()
 	t.is(body.status, 200)
 	verifyProvider(t, provider, id, json)
@@ -33,7 +34,7 @@ test('youtube provider', async t => {
 })
 
 test('endpoints returns 404 for non-exisiting ids', async t => {
-	let id = 'this is probably not a valid id'
+	const id = 'this is probably not a valid id'
 	const url = await listen(micro(mediaNow))
 	const youtube = await fetch(`${url}/youtube/${id}`)
 	t.is(youtube.status, 404)
@@ -46,8 +47,8 @@ test('endpoints returns 404 for non-exisiting ids', async t => {
 })
 
 test('vimeo provider', async t => {
-	let provider = 'vimeo'
-	let id = '121814744'
+	const provider = 'vimeo'
+	const id = '121814744'
 	const url = await listen(micro(mediaNow))
 	const body = await fetch(`${url}/${provider}/${id}`)
 	const json = await body.json()
@@ -56,8 +57,8 @@ test('vimeo provider', async t => {
 })
 
 test('discogs provider', async t => {
-	let provider = 'discogs'
-	let id = 1728315
+	const provider = 'discogs'
+	const id = 1728315
 	const url = await listen(micro(mediaNow))
 	const body = await fetch(`${url}/${provider}/${id}`)
 	const json = await body.json()
@@ -72,8 +73,8 @@ test('discogs provider', async t => {
 })
 
 test('spotify provider', async t => {
-	let provider = 'spotify'
-	let id = '20efeySIfZoiSaISGLBbNs'
+	const provider = 'spotify'
+	const id = '20efeySIfZoiSaISGLBbNs'
 	const url = await listen(micro(mediaNow))
 	const body = await fetch(`${url}/${provider}/${id}`)
 	const json = await body.json()
@@ -83,8 +84,8 @@ test('spotify provider', async t => {
 })
 
 test('spotify-search provider', async t => {
-	let provider = 'spotify-search'
-	let query = 'Michael Jackson - Thriller'
+	const provider = 'spotify-search'
+	const query = 'Michael Jackson - Thriller'
 	const url = await listen(micro(mediaNow))
 	const body = await fetch(`${url}/${provider}/${query}`)
 	const json = await body.json()
@@ -94,14 +95,14 @@ test('spotify-search provider', async t => {
 	t.truthy(item.id)
 	t.truthy(item.title)
 	t.truthy(item.mediaNow)
-	let firstWord = query.split(' ')[0].toLowerCase()
-	let firstWordIsIncluded = item.title.toLowerCase().includes(firstWord)
+	const firstWord = query.split(' ')[0].toLowerCase()
+	const firstWordIsIncluded = item.title.toLowerCase().includes(firstWord)
 	t.true(firstWordIsIncluded)
 })
 
 test('analyse provider', async t => {
-	let provider = 'analyse'
-	let id = '20efeySIfZoiSaISGLBbNs'
+	const provider = 'analyse'
+	const id = '20efeySIfZoiSaISGLBbNs'
 	const url = await listen(micro(mediaNow))
 	const body = await fetch(`${url}/${provider}/${id}`)
 	const json = await body.json()
