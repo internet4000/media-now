@@ -1,5 +1,7 @@
 require('dotenv').config()
-const opbeat = require('opbeat').start()
+const opbeat = require('opbeat').start({
+	active: process.env.NODE_ENV === 'production'
+})
 const {send} = require('micro')
 const microCors = require('micro-cors')
 
