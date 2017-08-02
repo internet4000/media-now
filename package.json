@@ -7,15 +7,15 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --exec 'micro .'",
-    "now-start": "micro .",
+    "start": "micro-dev",
+    "now-start": "micro",
     "test": "xo && ava",
     "deploy": "now --dotenv -e NODE_ENV=production"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
     "isomorphic-fetch": "^2.2.1",
-    "micro": "^6.2.0",
+    "micro": "^8.0.1",
     "micro-cors": "^0.0.1",
     "opbeat": "^4.11.0",
     "pomeranian-durations": "^0.1.4",
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "ava": "^0.18.1",
-    "nodemon": "^1.11.0",
+    "micro-dev": "^1.0.2",
     "test-listen": "^1.0.1",
     "xo": "^0.18.2"
   },
