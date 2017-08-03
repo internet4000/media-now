@@ -4,7 +4,7 @@ const getSpotifyToken = require('./get-spotify-token')
 // Take a query like "Artist - Track title"
 // and return {artist, title}
 const splitQuery = query => {
-	let q = decodeURI(query)
+	const q = decodeURI(query)
 	if (!q.includes(' - ')) {
 		return false
 	}
@@ -18,9 +18,9 @@ const buildURL = function (query) {
 	const type = 'track'
 	const limit = 10
 
-	// Spotify returns much more precise results when
+	// Spotify returns more precise results when
 	// artist and track are specified seperately.
-	let info = splitQuery(query)
+	const info = splitQuery(query)
 	if (info.artist && info.track) {
 		query = `artist:${info.artist}+track:${info.track}`
 	}
@@ -30,7 +30,7 @@ const buildURL = function (query) {
 
 const fetchData = async function (id) {
 	const token = await getSpotifyToken()
-	return await fetch(buildURL(id), {
+	return fetch(buildURL(id), {
 		headers: {
 			Authorization: 'Bearer ' + token.access_token
 		}
@@ -50,7 +50,6 @@ const serializeMany = items => items.map(item => {
 })
 
 const serialize = function (json) {
-	// return json // use this to debug
 	if (json.tracks && json.tracks.items.length > 0) {
 		return serializeMany(json.tracks.items)
 	}

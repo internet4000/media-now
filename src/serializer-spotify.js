@@ -7,7 +7,7 @@ const getSpotifyToken = require('./get-spotify-token')
 const fetchData = async function (id) {
 	const token = await getSpotifyToken()
 	const url = `https://api.spotify.com/v1/tracks/${id}`
-	return await fetch(url, {
+	return fetch(url, {
 		headers: {
 			Authorization: 'Bearer ' + token.access_token
 		}
@@ -32,7 +32,6 @@ const serializeOne = item => ({
 })
 
 const serialize = function (json) {
-	// return json // use this to debug
 	if (!json.id) {
 		throw new Error('No results found')
 	}

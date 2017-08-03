@@ -10,7 +10,7 @@ const fetchData = async function (id) {
 	if (!key) {
 		throw new Error('A VIMEO_KEY in your .env file is required')
 	}
-	return await fetch(buildURL(id), {
+	return fetch(buildURL(id), {
 		// Vimeo requires an auth header.
 		headers: {
 			Authorization: key
@@ -20,16 +20,13 @@ const fetchData = async function (id) {
 
 const serialize = function (json) {
 	if (!json || json.error) {
-		let msg = json.error || 'No results found'
+		const msg = json.error || 'No results found'
 		throw new Error(msg)
 	}
 
-	// return json // use this to debug
-
 	return {
 		provider: 'vimeo',
-		// id: json.id,
-		id: json.uri.split('/')[2], // no id in the JSON?
+		id: json.uri.split('/')[2], // No id in the JSON?
 		url: json.link,
 		title: json.name,
 		thumbnail: json.pictures.sizes[0].link,
