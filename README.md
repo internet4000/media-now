@@ -18,7 +18,7 @@ Here is a hopefully self-explanatory list of endpoints. Try them!
 - https://media.now.sh/discogs/1728315
 - https://media.now.sh/spotify/3S2R0EVwBSAVMd5UMgKTL0
 - https://media.now.sh/analyse/3S2R0EVwBSAVMd5UMgKTL0
-- [https://media.now.sh/spotify-search/Michael Jackson - Thriller](https://media.now.sh/spotify-search/Michael Jackson - Thriller)
+- https://media.now.sh/spotify-search/Michael%20Jackson%20-%20Thriller
 
 The data returned will (mostly) be formatted like so:
 
