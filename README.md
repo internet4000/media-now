@@ -3,7 +3,7 @@
 Get media information from YouTube and Vimeo videos, Spotify tracks and Discogs releases.
 
 Media Now is an API that proxies and unifies different providers.
-Creating new providers is straight forward ([example](https://github.com/Internet4000/media-now/blob/master/src/serializer-discogs.js)).
+Creating new providers is straight forward ([example](https://github.com/internet4000/media-now/blob/master/src/serializer-discogs.js)).
 
 ![](https://travis-ci.org/Internet4000/media-now.svg?branch=master)
 
@@ -13,12 +13,12 @@ Creating new providers is straight forward ([example](https://github.com/Interne
 
 Here is a hopefully self-explanatory list of endpoints. Try them!
 
-- https://media.now.sh/youtube/YyI52_FEYgY
-- https://media.now.sh/vimeo/121814744
-- https://media.now.sh/discogs/1728315
-- https://media.now.sh/spotify/3S2R0EVwBSAVMd5UMgKTL0
-- https://media.now.sh/analyse/3S2R0EVwBSAVMd5UMgKTL0
-- https://media.now.sh/spotify-search/Michael%20Jackson%20-%20Thriller
+- /youtube/YyI52_FEYgY
+- /vimeo/121814744
+- /discogs/1728315
+- /spotify/3S2R0EVwBSAVMd5UMgKTL0
+- /analyse/3S2R0EVwBSAVMd5UMgKTL0
+- /spotify-search/Michael%20Jackson%20-%20Thriller
 
 The data returned will (mostly) be formatted like so:
 
@@ -50,6 +50,5 @@ Some requests require authentication. Copy the `.env-example` file to `.env` and
 
 ## Deploying
 
-1. `yarn deploy` (or `npm run deploy`, if you please)
-2. `now alias <paste now url here> media.now.sh` (the id will be ready to paste automatically)
+This used to be deployed to media.now.sh, but it no longer is. Deploying to Heroku works.
 

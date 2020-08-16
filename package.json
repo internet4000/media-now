@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "micro-dev",
     "start": "micro",
-    "test": "xo && ava",
-    "deploy": "now --dotenv -e NODE_ENV=production"
+    "test": "xo && ava"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
@@ -29,8 +28,5 @@
   },
   "xo": {
     "semicolon": false
-  },
-  "now": {
-    "alias": "media.now.sh"
   }
 }
