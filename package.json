@@ -7,8 +7,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "micro-dev",
-    "now-start": "micro",
+    "dev": "micro-dev",
+    "start": "micro",
     "test": "xo && ava",
     "deploy": "now --dotenv -e NODE_ENV=production"
   },
@@ -17,7 +17,6 @@
     "isomorphic-fetch": "^2.2.1",
     "micro": "^8.0.1",
     "micro-cors": "^0.0.4",
-    "opbeat": "^4.15.1",
     "pomeranian-durations": "^0.2.0",
     "request": "^2.81.0",
     "request-promise-native": "^1.0.4"
