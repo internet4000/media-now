@@ -7,8 +7,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "micro-dev",
-    "now-start": "micro",
+    "dev": "micro-dev",
+    "start": "micro",
     "test": "xo && ava",
     "deploy": "now --dotenv -e NODE_ENV=production"
   },
