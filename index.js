@@ -1,7 +1,4 @@
 require('dotenv').config()
-const opbeat = require('opbeat').start({
-	active: process.env.NODE_ENV === 'production'
-})
 const {send} = require('micro')
 const microCors = require('micro-cors')
 
@@ -25,8 +22,6 @@ module.exports = cors(async (req, res) => {
 	const provider = args[1]
 	const id = args[2]
 	const serializer = serializers[provider]
-
-	opbeat.setTransactionName(req.url)
 
 	if (!serializer) {
 		send(res, 404, {
